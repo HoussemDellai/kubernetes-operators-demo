@@ -14,6 +14,9 @@ kubectl create -f manifests/setup
 until kubectl get servicemonitors --all-namespaces ; do date; sleep 1; echo ""; done
 kubectl create -f manifests/
 
+# Get created resources
+kubectl get all -n monitoring
+
 # Acces to Prometheus dashboard
 kubectl --namespace monitoring port-forward svc/prometheus-k8s 9090
 
